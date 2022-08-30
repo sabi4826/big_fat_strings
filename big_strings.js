@@ -30,13 +30,24 @@ function formatString() {
   console.log("formatString func loaded");
 
   if (selectValue === "1") {
-    let allToLowerCase = input.toLowerCase;
-    console.log(allToLowerCase);
-    let firstLetter = allToLowerCase.substring(0, 1).toUpperCase;
+    // capitalize first letter, rest lowercase:
+    let allToLowerCase = input.toLowerCase();
+    let firstLetter = allToLowerCase.substring(0, 1);
+    let upperCase = firstLetter.toUpperCase();
     let endOfWord = allToLowerCase.substring(1);
-    output = `${firstLetter}${endOfWord}`;
+    output = `${upperCase}${endOfWord}`;
     console.log(output);
-  } else if (selectValue === 4) {
+    document.getElementById("theOutput").value = output; // stackoverflow says innerHTML doesn't work on input fields?
+  } else if (selectValue === "2") {
+    // find first name:
+    // search for space after first name:
+    let searchForSpace = input.indexOf(" ");
+    console.log(searchForSpace); // returns a number
+    // substring from 0 - the space:
+    let output = input.substring(0, searchForSpace);
+    document.getElementById("theOutput").value = output;
+  } else if (selectValue === "3") {
+  } else if (selectValue === "4") {
     // "*".repeat (.length)
   }
 }
